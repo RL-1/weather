@@ -89,9 +89,6 @@ export const MainPage = () => {
     console.log(location);
   };
 
-  useEffect(() => {
-    getLocation()
-  }, [])
 
   useEffect(() => {
     if(location){
@@ -99,6 +96,8 @@ export const MainPage = () => {
         country: `${location.coords.latitude},${location.coords.longitude}`,
         day: day,
       }))
+    } else {
+      getLocation()
     }
   }, [day, location])
 
